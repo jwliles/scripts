@@ -1,0 +1,4 @@
+05 * * * * cp /home/jwl/.zsh_history /home/jwl/dotfiles/
+06 * * * * /home/jwl/.scripts/speedtest.py
+35 * * * * /usr/bin/python3 /home/jwl/projects/speedtests/python/speedtest.py >> /home/jwl/projects/speedtests/logs/speedtest.log 2>&1
+0 * * * * /home/jwl/projects/speedtests/frontend/speedtest-results/fetch-data.sh >> /home/jwl/projects/speedtests/logs/fetch-data.log 2>&1
