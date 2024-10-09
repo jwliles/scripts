@@ -1,5 +1,5 @@
 [package]
-name = "readme_generator"
+name = "treedoc"
 version = "0.1.0"
 edition = "2021"
 
@@ -13,3 +13,5 @@ env_logger = "0.10"
 memmap2 = "0.5"
 indicatif = "0.16"
 chrono = { version = "0.4", features = ["serde"] }
+tree-sitter = "0.20"
+tree-sitter-python = "0.20"
