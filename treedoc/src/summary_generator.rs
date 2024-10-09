@@ -12,7 +12,7 @@ use std::io::Write;
 /// * `folder_map` - A HashMap containing folder names and their associated files.
 /// * `directory_count` - The number of subdirectories in the folder.
 /// * `file_count` - The number of files in the folder.
-pub fn generate_readme(
+pub fn generate_summary(
     folder_name: &str,
     folder_path: &str,
     scan_date: &str,
