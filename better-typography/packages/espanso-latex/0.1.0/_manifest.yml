@@ -1,0 +1,7 @@
+author: Linghou Zoeng
+description: A package to expand latex commands to symbols.
+name: espanso-latex
+title: Latex Symbols
+version: 0.1.0
+homepage: "https://github.com/zoenglinghou/espanso-latex"
+tags: ["math", "latex", "symbols"]

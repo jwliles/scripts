@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Temperature"],"fn":["convert_temp","get_user_temp","print_temp"]};

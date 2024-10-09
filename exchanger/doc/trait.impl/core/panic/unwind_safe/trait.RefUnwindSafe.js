@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"main":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.76.0/core/panic/unwind_safe/trait.RefUnwindSafe.html\" title=\"trait core::panic::unwind_safe::RefUnwindSafe\">RefUnwindSafe</a> for <a class=\"enum\" href=\"main/enum.Temperature.html\" title=\"enum main::Temperature\">Temperature</a>",1,["main::Temperature"]]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

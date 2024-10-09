@@ -1,0 +1,58 @@
+.\" Man page for Dotforge CLI
+.TH df 1 "October 2024" "Dotforge 1.0" "User Commands"
+.SH NAME
+df \- Manage symlinks, file types, and ignored paths
+.SH SYNOPSIS
+.B df
+.RI [ options ]
+.SH DESCRIPTION
+Dotforge is a CLI tool to manage symlinks, file types, and ignored paths with options for adding, removing, and listing.
+.SH OPTIONS
+.TP
+.B --set-default-path, -sdp \fI<path>\fP
+Set the default directory for symlink creation.
+.TP
+.B --new-filetypes, -nft \fI<extensions>\fP
+Add new file types to the approved list using space-separated extensions.
+.TP
+.B --remove-filetypes, -rft \fI<extensions>\fP
+Remove file types from the approved list.
+.TP
+.B --list-filetypes, -lft
+List all approved file types.
+.TP
+.B --ignore-paths, -ip \fI<paths>\fP
+Add paths to be ignored.
+.TP
+.B --remove-ignored, -ri \fI<paths>\fP
+Remove an ignored path.
+.TP
+.B --list-ignored, -li
+List all ignored paths.
+.TP
+.B --scan, -s
+Scan the current directory for blocked or unaccepted files.
+.TP
+.B --max-lines, -ml \fI<number>\fP
+Set max lines to display before opening in editor (default: 20).
+.TP
+.B --list-default-path, -ldp
+Display the current default path.
+.TP
+.B --help, -h
+Show help information.
+.SH EXAMPLES
+.TP
+.B df --set-default-path /home/user/Applications
+Sets the default target directory for symlink creation.
+.TP
+.B df --new-filetypes .go .py
+Adds .go and .py as approved file types.
+.TP
+.B df --ignore-paths /home/user/temp
+Adds /home/user/temp to the ignored paths list.
+.TP
+.B df --scan
+Scans the current directory for blocked or unaccepted files.
+.SH AUTHOR
+Written by Justin Wayne Liles.

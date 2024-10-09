@@ -1,0 +1,50 @@
+# Binaries
+/gen-readme
+/gen-readme.exe
+/gen-readme.dms
+
+# Compiled Object files
+*.o
+*.a
+*.so
+
+# Output of the go build process
+/build/
+bin/
+dist/
+
+# Logs and debugging
+*.log
+*.tmp
+*.out
+
+# SQLite database file
+*.db
+
+# Temporary files
+*.swp
+*.swo
+
+# Go specific
+*.exe
+*.test
+*.mod
+*.sum
+
+# Dependency directories (vendor)
+vendor/
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Go coverage
+*.cover
+*.cov
+coverage.out
+
+# Temporary system files
+*.bak
+*.old
