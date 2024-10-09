@@ -1,8 +1,8 @@
 use crate::change_detector::process_file;
 use crate::metrics::Metrics;
-use crate::readme_writer::generate_readme; // Delegates README writing to this module
+use crate::summary_generator::generate_summary;
 use chrono::{FixedOffset, Utc};
-use indicatif::ProgressBar; // Adding the progress bar
+use indicatif::ProgressBar;
 use indicatif::ProgressStyle;
 use log::{error, info, warn};
 use rayon::prelude::*;
@@ -13,7 +13,7 @@ use std::sync::{
     atomic::{AtomicU64, Ordering},
     Arc, Mutex,
 };
-use walkdir::{DirEntry, WalkDir}; // For handling time zone offsets
+use walkdir::{DirEntry, WalkDir};
 
 const UTC_OFFSET_SECONDS: i32 = 5 * 3600;
 
@@ -95,10 +95,14 @@ pub fn scan_directory(
                 if file_count_value % 100 == 0 {
                     progress_bar.inc(100);
                 }
+
+                // Tree-sitter-based file processing
                 let mut conn_guard = _conn.lock().expect("Failed to lock database connection");
                 let tx = conn_guard
                     .transaction()
                     .expect("Failed to create transaction");
+
+                // Use Tree-sitter to process the file content and generate summary
                 if let Err(e) = process_file(file_path_str, &tx) {
                     error!("Failed to process file {}: {}", file_path_str, e);
                 }
@@ -108,9 +112,12 @@ pub fn scan_directory(
 
     progress_bar.finish_with_message("Scanning completed");
 
-    let folder_name = path.split('/').last().unwrap_or("notes");
-    generate_readme(
-        folder_name,
+    // Remove the README generation and replace with a directory summary or overall content summary
+    // Extract the folder name from the path to pass as the missing argument
+    let folder_name = path.split('/').last().unwrap_or("root");
+
+    generate_summary(
+        folder_name,  // <-- This is the missing &str argument
         path,
         &scan_date,
         &root_files.lock().expect("Failed to lock root_files"),
@@ -120,4 +127,5 @@ pub fn scan_directory(
             .expect("Failed to lock directory_count"),
         file_count.load(Ordering::SeqCst),
     );
+
 }
