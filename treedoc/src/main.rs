@@ -12,7 +12,7 @@ use std::path::PathBuf;
 use std::sync::atomic::AtomicU64;
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
-mod readme_writer;
+mod summary_generator;
 
 fn main() {
     logger::init_logger();
