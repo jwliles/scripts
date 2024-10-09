@@ -43,7 +43,7 @@ generate_readme() {
 
     # Header of the README
     echo "<!-- hash:$(md5sum <<<"$dir" | cut -d ' ' -f 1) -->" >"$readme_path"
-    echo "# README" >>"$readme_path" # Always use "README" as the H1 heading
+    echo "* README" >>"$readme_path" # Always use "README" as the H1 heading
     echo "" >>"$readme_path"
 
     # Check and print the file count and current date
@@ -54,14 +54,14 @@ generate_readme() {
     echo "" >>"$readme_path"
     echo "---" >>"$readme_path"
     echo "" >>"$readme_path"
-    echo "## Categories" >>"$readme_path"
+    echo "** Categories" >>"$readme_path"
     echo "" >>"$readme_path"
 
     # Generate TOC for subdirectories, excluding hidden ones
     find "$dir" -maxdepth 1 -type d ! -name ".*" ! -path '*/.*' ! -samefile "$dir" | sort | while read subdir; do
         local subdir_name=$(basename "$subdir")
         local subdir_snake=$(to_snake_case "$subdir_name")
-        echo "- [${subdir_name^}](#${subdir_snake})" >>"$readme_path"
+        echo "- [${subdir_name^}](*${subdir_snake})" >>"$readme_path"
     done
 
     echo "" >>"$readme_path"
@@ -69,7 +69,7 @@ generate_readme() {
     echo "" >>"$readme_path"
 
     # List notes in the current directory first
-    echo "### ${dir_name^}" >>"$readme_path"
+    echo "*** ${dir_name^}" >>"$readme_path"
     echo "" >>"$readme_path"
 
     # List files in the current directory, including the README.org, and excluding hidden ones
@@ -87,7 +87,7 @@ generate_readme() {
         local subdir_name=$(basename "$subdir")
         local subdir_snake=$(to_snake_case "$subdir_name")
 
-        echo "### ${subdir_name^}" >>"$readme_path" # Use the actual directory name as the heading
+        echo "*** ${subdir_name^}" >>"$readme_path" # Use the actual directory name as the heading
         echo "" >>"$readme_path"
 
         # List files within the subdirectory, excluding hidden ones
