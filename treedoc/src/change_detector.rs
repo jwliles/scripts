@@ -105,7 +105,7 @@ fn parse_and_generate_summary(file_path: &str) -> Result<(), String> {
     let file_count = 1;  // Placeholder for file count (replace with actual value)
 
     // Now call generate_summary with the correct arguments
-    let summary (
+    generate_summary (
         folder_name,
         folder_path,
         SCAN_DATE,
