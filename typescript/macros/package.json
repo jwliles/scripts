@@ -1,0 +1,20 @@
+{
+  "name": "macros",
+  "version": "1.0.0",
+  "description": "The script fetches nutritional data for food items using the USDA Food Data Central API, processes the data, and writes it into different file formats for easy access. Below, I'll break down its core components:",
+  "main": "macros.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
+  }
+}
